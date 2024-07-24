@@ -77,7 +77,8 @@ async function getOnboardingConfig(
     }
   }
 
-  if (foundPreset) {
+  const hasPredefinedPreset = onboardingConfig?.extends !== undefined;
+  if (foundPreset && !hasPredefinedPreset) {
     logger.debug(`Found preset ${foundPreset} - using it in onboarding config`);
     onboardingConfig = {
       $schema: 'https://docs.renovatebot.com/renovate-schema.json',
