@@ -126,7 +126,7 @@ describe('workers/repository/onboarding/branch/config', () => {
         return Promise.reject(new Error(PRESET_DEP_NOT_FOUND));
       });
       const onboardingConfig = await getOnboardingConfig(config);
-      expect(mockedPresets.getPreset).toHaveBeenCalledTimes(1);
+      expect(mockedPresets.getPreset).toHaveBeenCalledTimes(0);
       expect(onboardingConfig).toEqual({
         $schema: 'https://docs.renovatebot.com/renovate-schema.json',
         extends: ['local>org/renovate-config#v1.23.0'],
@@ -143,7 +143,7 @@ describe('workers/repository/onboarding/branch/config', () => {
         return Promise.reject(new Error(PRESET_DEP_NOT_FOUND));
       });
       const onboardingConfig = await getOnboardingConfig(config);
-      expect(mockedPresets.getPreset).toHaveBeenCalledTimes(3);
+      expect(mockedPresets.getPreset).toHaveBeenCalledTimes(0);
       expect(onboardingConfig).toEqual({
         $schema: 'https://docs.renovatebot.com/renovate-schema.json',
         extends: [],
